@@ -20,26 +20,26 @@ The process is very simple, you clone this project and create an archetype jar f
     Resolving deltas: 100% (2/2), done.
 
     $ cd maven-archetype-hadoop/
-    $ mvn archetype:create-from-project
+    $ $ mvn archetype:create-from-project
     [INFO] Scanning for projects...
     [INFO] Searching repository for plugin with prefix: 'archetype'.
     [INFO] ------------------------------------------------------------------------
-    [INFO] Building maven-archetype-hadoop
+    [INFO] Building mapred
     [INFO]    task-segment: [archetype:create-from-project] (aggregator-style)
     [INFO] ------------------------------------------------------------------------
     [INFO] Preparing archetype:create-from-project
     [INFO] ------------------------------------------------------------------------
-    [INFO] Building maven-archetype-hadoop
+    [INFO] Building mapred
     [INFO] ------------------------------------------------------------------------
     [INFO] No goals needed for project - skipping
     [INFO] [archetype:create-from-project {execution: default-cli}]
     [INFO] Setting default groupId: com.larsgeorge
-    [INFO] Setting default artifactId: maven-archetype-hadoop
+    [INFO] Setting default artifactId: mapred
     [INFO] Setting default version: 1.0-SNAPSHOT
     [INFO] Setting default package: com.larsgeorge
     [INFO] Scanning for projects...
     [INFO] ------------------------------------------------------------------------
-    [INFO] Building maven-archetype-hadoop-archetype
+    [INFO] Building mapred-archetype
     [INFO]    task-segment: [package]
     [INFO] ------------------------------------------------------------------------
     [INFO] [resources:resources {execution: default-resources}]
@@ -52,7 +52,7 @@ The process is very simple, you clone this project and create an archetype jar f
     [INFO] BUILD SUCCESSFUL
     [INFO] ------------------------------------------------------------------------
     [INFO] Total time: 2 seconds
-    [INFO] Finished at: Fri Dec 03 00:31:03 CET 2010
+    [INFO] Finished at: Fri Dec 03 01:10:16 CET 2010
     [INFO] Final Memory: 20M/81M
     [INFO] ------------------------------------------------------------------------
     [INFO] Archetype created in /private/tmp/maven-archetype-hadoop/target/generated-sources/archetype
@@ -60,7 +60,7 @@ The process is very simple, you clone this project and create an archetype jar f
     [INFO] BUILD SUCCESSFUL
     [INFO] ------------------------------------------------------------------------
     [INFO] Total time: 6 seconds
-    [INFO] Finished at: Fri Dec 03 00:31:03 CET 2010
+    [INFO] Finished at: Fri Dec 03 01:10:16 CET 2010
     [INFO] Final Memory: 17M/81M
     [INFO] ------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ With that you have build the archetype you now need to install into your local r
     $ mvn install
     [INFO] Scanning for projects...
     [INFO] ------------------------------------------------------------------------
-    [INFO] Building maven-archetype-hadoop-archetype
+    [INFO] Building mapred-archetype
     [INFO]    task-segment: [install]
     [INFO] ------------------------------------------------------------------------
     [INFO] [resources:resources {execution: default-resources}]
@@ -81,13 +81,13 @@ With that you have build the archetype you now need to install into your local r
     [INFO] [archetype:add-archetype-metadata {execution: default-add-archetype-metadata}]
     [INFO] [archetype:integration-test {execution: default-integration-test}]
     [INFO] [install:install {execution: default-install}]
-    [INFO] Installing /private/tmp/maven-archetype-hadoop/target/generated-sources/archetype/target/maven-archetype-hadoop-archetype-1.0-SNAPSHOT.jar to /Users/larsgeorge/.m2/repository/com/larsgeorge/maven-archetype-hadoop-archetype/1.0-SNAPSHOT/maven-archetype-hadoop-archetype-1.0-SNAPSHOT.jar
+    [INFO] Installing /private/tmp/maven-archetype-hadoop/target/generated-sources/archetype/target/mapred-archetype-1.0-SNAPSHOT.jar to /Users/larsgeorge/.m2/repository/com/larsgeorge/mapred-archetype/1.0-SNAPSHOT/mapred-archetype-1.0-SNAPSHOT.jar
     [INFO] [archetype:update-local-catalog {execution: default-update-local-catalog}]
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESSFUL
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 3 seconds
-    [INFO] Finished at: Fri Dec 03 00:31:16 CET 2010
+    [INFO] Total time: 6 seconds
+    [INFO] Finished at: Fri Dec 03 01:11:34 CET 2010
     [INFO] Final Memory: 21M/81M
     [INFO] ------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ Now you can create a new project using this archetype::
     [INFO] Generating project in Interactive mode
     [INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
     Choose archetype:
-    1: local -> maven-archetype-hadoop-archetype (maven-archetype-hadoop-archetype)
+    1: local -> mapred-archetype (mapred-archetype)
     Choose a number: : 1
     Define value for property 'groupId': : com.foobar
     Define value for property 'artifactId': : mapred
@@ -122,8 +122,8 @@ Now you can create a new project using this archetype::
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESSFUL
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 42 seconds
-    [INFO] Finished at: Fri Dec 03 00:32:52 CET 2010
+    [INFO] Total time: 1 minute 3 seconds
+    [INFO] Finished at: Fri Dec 03 01:13:34 CET 2010
     [INFO] Final Memory: 16M/81M
     [INFO] ------------------------------------------------------------------------
 
@@ -168,7 +168,7 @@ Let's check if it compiles on its own::
     $ mvn package
     [INFO] Scanning for projects...
     [INFO] ------------------------------------------------------------------------
-    [INFO] Building maven-archetype-hadoop
+    [INFO] Building mapred
     [INFO]    task-segment: [package]
     [INFO] ------------------------------------------------------------------------
     [INFO] [resources:resources {execution: default-resources}]
@@ -184,12 +184,12 @@ Let's check if it compiles on its own::
     [INFO] [surefire:test {execution: default-test}]
     [INFO] No tests to run.
     [INFO] [jar:jar {execution: default-jar}]
-    [INFO] Building jar: /private/tmp/mapred/target/mapred-test-1.0-SNAPSHOT.jar
+    [INFO] Building jar: /private/tmp/mapred/target/mapred-1.0-SNAPSHOT.jar
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESSFUL
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 4 seconds
-    [INFO] Finished at: Fri Dec 03 00:47:35 CET 2010
+    [INFO] Total time: 3 seconds
+    [INFO] Finished at: Fri Dec 03 01:15:37 CET 2010
     [INFO] Final Memory: 25M/81M
     [INFO] ------------------------------------------------------------------------
 
@@ -197,11 +197,11 @@ And finally we check if there is a job jar ready to be uploaded to a cluster for
 
     $ ls -la target/
     total 16
-    drwxr-xr-x  6 larsgeorge  wheel   204 Dec  3 00:47 .
-    drwxr-xr-x  7 larsgeorge  wheel   238 Dec  3 00:47 ..
-    drwxr-xr-x  3 larsgeorge  wheel   102 Dec  3 00:47 classes
-    drwxr-xr-x  3 larsgeorge  wheel   102 Dec  3 00:47 generated-sources
-    -rw-r--r--  1 larsgeorge  wheel  5430 Dec  3 00:47 mapred-test-1.0-SNAPSHOT.jar
-    drwxr-xr-x  3 larsgeorge  wheel   102 Dec  3 00:47 maven-archiver
+    drwxr-xr-x  6 larsgeorge  wheel   204 Dec  3 01:15 .
+    drwxr-xr-x  7 larsgeorge  wheel   238 Dec  3 01:15 ..
+    drwxr-xr-x  3 larsgeorge  wheel   102 Dec  3 01:15 classes
+    drwxr-xr-x  3 larsgeorge  wheel   102 Dec  3 01:15 generated-sources
+    -rw-r--r--  1 larsgeorge  wheel  5380 Dec  3 01:15 mapred-1.0-SNAPSHOT.jar
+    drwxr-xr-x  3 larsgeorge  wheel   102 Dec  3 01:15 maven-archiver
 
 Done!
